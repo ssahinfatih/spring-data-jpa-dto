@@ -1,5 +1,9 @@
 package com.fatihsahin.dto;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +15,12 @@ import java.util.Date;
 @NoArgsConstructor
 public class DtoStudentIU {
 
+    @NotEmpty(message = "Ad alanı boş bırakılamaz.")// Spring Validation ile isim kısmının boş geçilemeyeceği koşulunu yazıyoruz.
+    @Min(value = 3 ,message = "Ad minimum 3 karakter olmalıdır.")
+    @Max(value = 15,message = "Ad maksimum 15 karakter olmalıdır.")
     private String firstName;
+
+    @Size(min = 3,max = 15 , message = "Soyad minimum 3 maksimum 15 karakter olmalıdır.")
     private String lastName;
     private Date birthOfDate;
 }

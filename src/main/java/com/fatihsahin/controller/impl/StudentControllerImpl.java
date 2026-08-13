@@ -4,6 +4,7 @@ import com.fatihsahin.controller.IStudentController;
 import com.fatihsahin.dto.DtoStudent;
 import com.fatihsahin.dto.DtoStudentIU;
 import com.fatihsahin.services.IStudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class StudentControllerImpl implements IStudentController {
 
     @PostMapping(path = "/save")//veri kaydetmek işlemi.
     @Override
-    public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {//@RequestBody dışardan gelen json formatındaki veriyi almak için.
+    public DtoStudent saveStudent(@RequestBody @Valid/*spring validation görmesi için*/ DtoStudentIU dtoStudentIU) {//@RequestBody dışardan gelen json formatındaki veriyi almak için.
 
         return  studentService.saveStudent(dtoStudentIU );
     }
