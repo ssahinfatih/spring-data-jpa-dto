@@ -16,6 +16,7 @@ import java.util.List;
 @RestController//controller olduğunu belirtiyoruz.
 @RequestMapping("/rest/api/student")//ortak url
 public class StudentControllerImpl implements IStudentController {
+    //interface den gelen işlemleri burada karşılayarak ovveride ederek işlemlerin nasıl yapılacağını yazarız.
 
     @Autowired//Dİ
     private IStudentService studentService;
