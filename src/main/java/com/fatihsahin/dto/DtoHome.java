@@ -1,23 +1,21 @@
 package com.fatihsahin.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DtoStudent {
+public class DtoHome {
 
-    private Integer id;
 
-    private String firstName;
+    private BigDecimal price;
 
-    private String lastName;
-
-    private List<DtoCourse> courses = new ArrayList<>();
-
+    private List<DtoRoom> room = new ArrayList<>();
 }

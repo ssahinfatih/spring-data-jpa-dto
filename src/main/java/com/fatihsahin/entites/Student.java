@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity // bunun bir tablo olduğunu belirtir.
 @Table(name ="student")
@@ -30,6 +31,12 @@ public class Student {
     @DateTimeFormat(iso =  DateTimeFormat.ISO.DATE)//tarih formatını belirtir.
     @Column(name="birth_of_date",nullable = true)//tablonun bir stunu ve adı "birth_of_date, boş değer olabilir olduğunu belirtir.
     private Date birthOfDate ;
+
+    @ManyToMany
+    @JoinTable(name = "student_course",//üçüncü bir tablo oluşturur.
+    joinColumns = @JoinColumn(name = "student_id"),// student tablosunun id.
+    inverseJoinColumns = @JoinColumn(name = "course_id"))// course tablosunun id.
+    private List<Course> courses;
 
 
 }
